@@ -3,8 +3,7 @@ from django.urls import path, include
 from hexlet_django_blog.views import IndexView
 
 urlpatterns = [
-    path("", IndexView.as_view(), name="index"),
+    path("", IndexView.as_view(), name="index"),  # главная страница теперь редиректит
     path("articles/", include("hexlet_django_blog.article.urls")),
     path("admin/", admin.site.urls),
 ]
-
