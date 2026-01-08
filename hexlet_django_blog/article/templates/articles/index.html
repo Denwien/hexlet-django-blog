@@ -20,3 +20,9 @@
     <p>Статей пока нет</p>
 {% endfor %}
 {% endblock %}
+{% for article in articles %}
+  <li>
+    {{ article.title }} -
+    <a href="{% url 'articles_update' id=article.id %}">Редактировать</a>
+  </li>
+{% endfor %}
