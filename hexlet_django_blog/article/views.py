@@ -40,3 +40,15 @@ class ArticleFormEditView(View):
             form.save()
             return redirect("articles")
         return render(request, "articles/update.html", {"form": form, "article_id": article_id})
+
+from django.shortcuts import redirect
+from django.views import View
+from .models import Article
+
+class ArticleFormDeleteView(View):
+    def post(self, request, *args, **kwargs):
+        article_id = kwargs.get("id")
+        article = Article.objects.get(id=article_id)
+        if article:
+            article.delete()
+        return redirect("articles")

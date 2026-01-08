@@ -7,3 +7,9 @@ urlpatterns = [
     path("<int:id>/edit/", ArticleFormEditView.as_view(), name="articles_update"),  # редактирование
     path("<int:id>/", ArticleView.as_view(), name="article"),  # просмотр статьи
 ]
+
+from .views import ArticleFormDeleteView
+
+urlpatterns += [
+    path("<int:id>/delete/", ArticleFormDeleteView.as_view(), name="articles_delete"),
+]
